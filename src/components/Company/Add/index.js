@@ -3,7 +3,7 @@ import CompanyDataService from "../../../services/Company/index";
 
 const Add = () => {
 
-    const initialCompanyState = {id:null, name: ""};
+    const initialCompanyState = {id:null, fancyName: ""};
 
     const [company,setCompany]= useState(initialCompanyState);
 
@@ -16,13 +16,13 @@ const Add = () => {
 
     const saveCompany = () => {
         var data = {
-            name:company.name
+            fancyName:company.fancyName
         };
 
         CompanyDataService.create(data).then(response => {
             setCompany({
                 id: response.data.id,
-                name:response.data.name
+                name:response.data.fancyName
             });
             setSubmitted(true);
             console.log(response.data);
@@ -42,15 +42,15 @@ const Add = () => {
         <div className="submit-form">
             {submitted ? (
                 <div>
-                    <h4>You submitted sucessfully!</h4>
-                    <button className="btn btn-sucess" onClick=  {newCompany}>Add</button>
+                    <h4>Companhia salva</h4>
+                    <button className="btn btn-sucess" onClick= {newCompany}>Add</button>
                 </div>
             ):(
                 <div>
 
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" required value={handleInputChange} name="name" />
+                    <label htmlFor="name">Nome: </label>
+                    <input type="text" className="form-control" id="fancyName" required value={handleInputChange} name="fancyName" />
 
                 </div>
                 <button onClick={saveCompany} className="btn btn-sucess">Salvar</button>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import UserDataService from  "../../../services/User/index";
 import {TOKEN_KEY} from  "../../../services/Shared/api";
 
+
 const Login = props => {
     const [user,setUser] = useState ({
         id:null,
@@ -25,7 +26,9 @@ const sendLogin = () => {
     .then(response => {
         localStorage.setItem(TOKEN_KEY,response.data?.result?.token);
         console.log(TOKEN_KEY+": "+localStorage.getItem(TOKEN_KEY));
-        props.history.push("/company");
+
+        props.history.push("/home");
+
     })
     .catch(e => {
         console.log(e);
