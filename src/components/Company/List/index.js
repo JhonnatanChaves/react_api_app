@@ -80,7 +80,7 @@ const ListCompanies = () => {
       </div>
 
       <div className="col-md-6">
-        <h4>Lista de Companhias </h4>
+        <h3>Lista de Companhias </h3>
         <ul className="list-group">
           {companies &&
             companies.map((company, index) => (
@@ -103,7 +103,7 @@ const ListCompanies = () => {
       <div className="col-md-6">
         {currentCompany ? (
           <div>
-            <h4>Companhia : </h4>
+            <h2>Companhia selecionada : </h2>
             <div>
               <label>
                 <strong>Nome: </strong>

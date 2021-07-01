@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import ProductDataService from  "../../services/Product/index";
+import {Link} from "react-router-dom"
 
 const ListProducts = () => {
 
@@ -83,7 +84,7 @@ const ListProducts = () => {
       </div>
 
       <div className="col-md-6">
-        <h4>Lista de Produtos </h4>
+        <h3>Lista de Produtos </h3>
 
         <ul className="list-group">
           {products &&
@@ -107,7 +108,7 @@ const ListProducts = () => {
       <div className="col-md-6">
         {currentProduct ? (
           <div>
-            <h4>Produto Selecionado :</h4>
+            <h2>Produto Selecionado :</h2>
             <div>
               <label>
                 <strong>Nome: </strong>
@@ -126,6 +127,11 @@ const ListProducts = () => {
               </label>{" "}
               {currentProduct.value}
             </div>
+
+            <Link to={"/product/" + currentProduct.id} >
+                  Continuar
+              </Link>
+              
             
           </div>
         ) : (
